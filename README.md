@@ -7,6 +7,7 @@
 * laravel >=5.3 installed
 * apache =>2.4 or ngjnx intalled
 * composer installed
+* swagger-ui installed [visit homepage to install](http://swagger.io/swagger-ui/)
 
 ##Installation:
 * simply clone this repository
