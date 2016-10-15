@@ -11,12 +11,12 @@
 ##Installation:
 * simply clone this repository
 
-* ```
+```
 composer install
 ```
 
 ##Install swagger-ui
-* 
+
 [visit homepage to install](http://swagger.io/swagger-ui/)
 
 ##Usage
