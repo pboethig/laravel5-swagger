@@ -1,0 +1,168 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Main user api",
+        "description": "This is our main user api. It contains all method to handle users...",
+        "termsOfService": "",
+        "contact": {
+            "email": "pboethig@gmail.com"
+        },
+        "license": {
+            "name": "Private License",
+            "url": "URL to the license"
+        },
+        "version": "1.0.0"
+    },
+    "host": "swagger.local",
+    "basePath": "/lektionen/swagger/Api/public/Api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/list": {
+            "get": {
+                "tags": [
+                    "User/list"
+                ],
+                "summary": "List all users",
+                "description": "return a list of users",
+                "operationId": "userslist",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Users"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid tag value"
+                    }
+                },
+                "security": [
+                    {
+                        "usersstore_auth": [
+                            "write:users",
+                            "read:users"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/get/{id}": {
+            "get": {
+                "tags": [
+                    "User/get/{id}"
+                ],
+                "summary": "Finds Users by Id",
+                "description": "Find a specific user by its id",
+                "operationId": "usersget",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id to filter the user results",
+                        "required": true,
+                        "type": "integer",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Users"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid tag value"
+                    }
+                },
+                "security": [
+                    {
+                        "userstore_auth": [
+                            "write:users",
+                            "read:users"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/search/{term}": {
+            "get": {
+                "tags": [
+                    "User/find/{term}"
+                ],
+                "summary": "Finds Users by a given string or id",
+                "description": "Find specific users by their properties",
+                "operationId": "userssearch",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "term",
+                        "in": "path",
+                        "description": "A String to filter the user results",
+                        "required": true,
+                        "type": "string",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "hellow, this is really awesome. It works",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Users"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid term value"
+                    }
+                },
+                "security": [
+                    {
+                        "userstore_auth": [
+                            "write:users",
+                            "read:users"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {},
+    "externalDocs": {
+        "description": "Find out more about this in our FAQ",
+        "url": "http://www.google.de"
+    }
+}
